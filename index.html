@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Natasha 💕</title>
+
+    <!-- Google Fonts - Elegant romantic fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ============================================
+           ROOT VARIABLES & RESET
+           ============================================ */
+        :root {
+            --maroon-deep: #2d0a0a;
+            --maroon-rich: #5c1a1a;
+            --maroon-warm: #8b2d2d;
+            --rose-gold: #d4a574;
+            --gold-soft: #e8c99b;
+            --cream: #fff5eb;
+            --white-soft: rgba(255, 255, 255, 0.95);
+            --shadow-romantic: 0 0 40px rgba(212, 165, 116, 0.3);
+            --font-main: 'Playfair Display', serif;
+            --font-body: 'Cormorant Garamond', serif;
+            --font-script: 'Great Vibes', cursive;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: linear-gradient(135deg, #1a0505 0%, var(--maroon-deep) 50%, #0d0505 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* ============================================
+           FLOATING HEARTS BACKGROUND
+           ============================================ */
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 1.2rem;
+            opacity: 0.15;
+            animation: floatUp 15s linear infinite;
+            color: var(--rose-gold);
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.15;
+            }
+
+            90% {
+                opacity: 0.15;
+            }
+
+            100% {
+                transform: translateY(-10vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* ============================================
+           LANDING SCREEN
+           ============================================ */
+        .landing-screen {
+            text-align: center;
+            z-index: 10;
+            padding: 2rem;
+            transition: opacity 0.8s ease;
+        }
+
+        .landing-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .name-container {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .letter {
+            font-family: var(--font-main);
+            font-weight: 400;
+            font-size: clamp(3.5rem, 11vw, 7rem);
+            color: var(--cream);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-shadow: 0 0 20px rgba(212, 165, 116, 0.5);
+            position: relative;
+            display: inline-block;
+            letter-spacing: 0.05em;
+        }
+
+        .letter:hover {
+            color: var(--rose-gold);
+            transform: scale(1.1) translateY(-5px);
+            text-shadow: 0 0 40px rgba(212, 165, 116, 0.8), 0 0 80px rgba(212, 165, 116, 0.4);
+        }
+
+        .letter.opened {
+            color: var(--rose-gold);
+            text-shadow: 0 0 30px rgba(212, 165, 116, 0.6);
+        }
+
+        .letter.opened::after {
+            content: '♥';
+            position: absolute;
+            font-size: 0.2em;
+            top: 0;
+            right: -0.2em;
+            color: var(--rose-gold);
+            animation: heartPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+        }
+
+        .subtitle {
+            font-family: var(--font-body);
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            color: var(--gold-soft);
+            opacity: 0.8;
+            font-style: italic;
+            letter-spacing: 0.2em;
+            animation: fadeInUp 1.5s ease 0.5s both;
+            margin-top: 1rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 0.8;
+                transform: translateY(0);
+            }
+        }
+
+        /* Progress Hearts */
+        .progress-hearts {
+            margin-top: 3rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .progress-heart {
+            font-size: 1.5rem;
+            color: var(--maroon-rich);
+            transition: all 0.5s ease;
+            opacity: 0.3;
+        }
+
+        .progress-heart.filled {
+            color: var(--rose-gold);
+            opacity: 1;
+            animation: heartFill 0.6s ease;
+            text-shadow: 0 0 20px rgba(212, 165, 116, 0.6);
+        }
+
+        @keyframes heartFill {
+            0% {
+                transform: scale(0.5);
+            }
+
+            50% {
+                transform: scale(1.3);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* ============================================
+           MODAL / LETTER CARD
+           ============================================ */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 5, 5, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+            padding: 1rem;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .letter-card {
+            background: linear-gradient(145deg, rgba(92, 26, 26, 0.95), rgba(45, 10, 10, 0.98));
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            border-radius: 20px;
+            padding: clamp(2rem, 5vw, 4rem);
+            max-width: 600px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: var(--shadow-romantic), 0 20px 60px rgba(0, 0, 0, 0.5);
+            transform: scale(0.9) translateY(20px);
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+        }
+
+        .modal-overlay.active .letter-card {
+            transform: scale(1) translateY(0);
+        }
+
+        /* New: Big background letter for context */
+        .modal-bg-letter {
+            position: absolute;
+            top: 0rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--font-main);
+            font-size: 12rem;
+            color: rgba(212, 165, 116, 0.05);
+            /* Very subtle rose gold */
+            pointer-events: none;
+            z-index: 0;
+            line-height: 1;
+        }
+
+        .modal-header-container {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Explicit letter indicator */
+        .modal-key-letter {
+            font-family: var(--font-main);
+            font-size: 4rem;
+            color: var(--rose-gold);
+            text-shadow: 0 0 20px rgba(212, 165, 116, 0.4);
+            line-height: 0.8;
+            border-right: 2px solid rgba(212, 165, 116, 0.3);
+            padding-right: 1rem;
+        }
+
+        .letter-title {
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-style: italic;
+            font-size: clamp(1.5rem, 5vw, 2.2rem);
+            color: var(--cream);
+            text-align: left;
+            text-shadow: 0 0 10px rgba(212, 165, 116, 0.2);
+        }
+
+        .letter-content {
+            font-family: var(--font-body);
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            color: var(--cream);
+            line-height: 1.8;
+            text-align: center;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+
+        .letter-content .typewriter-line {
+            opacity: 0;
+            display: block;
+            margin-bottom: 0.8em;
+        }
+
+        .letter-content .typewriter-line.visible {
+            animation: typewriterFade 0.8s ease forwards;
+        }
+
+        @keyframes typewriterFade {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .back-button {
+            display: block;
+            margin: 2.5rem auto 0;
+            padding: 0.8rem 2.5rem;
+            background: transparent;
+            border: 1px solid var(--rose-gold);
+            color: var(--rose-gold);
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            letter-spacing: 0.15em;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .back-button:hover {
+            background: var(--rose-gold);
+            color: var(--maroon-deep);
+            box-shadow: 0 0 30px rgba(212, 165, 116, 0.4);
+        }
+
+        /* ============================================
+           FINAL PROPOSAL SCREEN
+           ============================================ */
+        .final-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a0505 0%, var(--maroon-deep) 50%, #0d0505 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 200;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 1s ease;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .final-screen.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .proposal-text {
+            font-family: var(--font-body);
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            color: var(--cream);
+            line-height: 2.2;
+            max-width: 700px;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .proposal-text .highlight {
+            font-family: var(--font-script);
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            color: var(--rose-gold);
+            display: block;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 30px rgba(212, 165, 116, 0.5);
+        }
+
+        .proposal-line {
+            opacity: 0;
+            display: block;
+            margin-bottom: 0.5em;
+        }
+
+        .proposal-line.visible {
+            animation: proposalFade 1s ease forwards;
+        }
+
+        @keyframes proposalFade {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .big-heart {
+            font-size: clamp(4rem, 10vw, 6rem);
+            color: var(--rose-gold);
+            animation: bigHeartBeat 1.5s ease-in-out infinite;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 50px rgba(212, 165, 116, 0.6);
+        }
+
+        @keyframes bigHeartBeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.1);
+            }
+
+            50% {
+                transform: scale(1);
+            }
+
+            75% {
+                transform: scale(1.15);
+            }
+        }
+
+        .yes-button {
+            padding: 1rem 3rem;
+            background: linear-gradient(135deg, var(--rose-gold), var(--gold-soft));
+            border: none;
+            color: var(--maroon-deep);
+            font-family: var(--font-main);
+            font-weight: 600;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 40px rgba(212, 165, 116, 0.4);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .yes-button.visible {
+            animation: buttonAppear 0.8s ease forwards;
+        }
+
+        @keyframes buttonAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .yes-button:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 15px 50px rgba(212, 165, 116, 0.6);
+        }
+
+        /* Heart Burst Animation */
+        .heart-burst {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 300;
+        }
+
+        .burst-heart {
+            position: absolute;
+            font-size: 2rem;
+            color: var(--rose-gold);
+            animation: burstOut 2s ease-out forwards;
+        }
+
+        @keyframes burstOut {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(2) translateY(-100px);
+                opacity: 0;
+            }
+        }
+
+        /* Celebration Message */
+        .celebration {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 400;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.8s ease;
+        }
+
+        .celebration.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .celebration-text {
+            font-family: var(--font-script);
+            font-size: clamp(3rem, 10vw, 5rem);
+            color: var(--rose-gold);
+            text-shadow: 0 0 50px rgba(212, 165, 116, 0.8);
+            animation: celebrationPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes celebrationPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.05);
+                opacity: 0.9;
+            }
+        }
+
+        .celebration-hearts {
+            margin-top: 2rem;
+            font-size: 3rem;
+            animation: heartRain 1s ease-in-out infinite;
+        }
+
+        @keyframes heartRain {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* ============================================
+           MUSIC TOGGLE
+           ============================================ */
+        .music-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(92, 26, 26, 0.8);
+            border: 1px solid var(--rose-gold);
+            color: var(--rose-gold);
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .music-toggle:hover {
+            background: var(--rose-gold);
+            color: var(--maroon-deep);
+            transform: scale(1.1);
+        }
+
+        .music-toggle.muted {
+            opacity: 0.5;
+        }
+
+        /* ============================================
+           RESPONSIVE ADJUSTMENTS
+           ============================================ */
+        @media (max-width: 600px) {
+            .name-container {
+                gap: 0.5rem;
+            }
+
+            .letter-card {
+                border-radius: 15px;
+                padding: 2rem 1.5rem;
+            }
+
+            .modal-key-letter {
+                border-right: none;
+                border-bottom: 2px solid rgba(212, 165, 116, 0.3);
+                padding-right: 0;
+                padding-bottom: 0.5rem;
+                width: 100%;
+                text-align: center;
+                margin-bottom: 0.5rem;
+            }
+
+            .letter-title {
+                text-align: center;
+                width: 100%;
+            }
+        }
+
+        /* Smooth scroll for letter card */
+        .letter-card::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .letter-card::-webkit-scrollbar-track {
+            background: rgba(45, 10, 10, 0.5);
+            border-radius: 3px;
+        }
+
+        .letter-card::-webkit-scrollbar-thumb {
+            background: var(--rose-gold);
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Landing Screen -->
+    <div class="landing-screen" id="landingScreen">
+        <div class="name-container" id="nameContainer">
+            <!-- Letters will be generated by JS -->
+        </div>
+        <p class="subtitle">Click each letter.</p>
+        <div class="progress-hearts" id="progressHearts">
+            <!-- Progress hearts will be generated by JS -->
+        </div>
+    </div>
+
+    <!-- Letter Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="letter-card">
+            <!-- Background letter for style -->
+            <div class="modal-bg-letter" id="modalBgLetter">N</div>
+
+            <div class="modal-header-container">
+                <!-- Explicit big letter link -->
+                <div class="modal-key-letter" id="modalKeyLetter">N</div>
+                <h2 class="letter-title" id="letterTitle"></h2>
+            </div>
+
+            <div class="letter-content" id="letterContent"></div>
+            <button class="back-button" id="backButton">Back</button>
+        </div>
+    </div>
+
+    <!-- Final Proposal Screen -->
+    <div class="final-screen" id="finalScreen">
+        <div class="proposal-text" id="proposalText"></div>
+        <div class="big-heart">💕</div>
+        <button class="yes-button" id="yesButton">Yes 💍</button>
+    </div>
+
+    <!-- Celebration -->
+    <div class="celebration" id="celebration">
+        <div class="celebration-text">Forever Yours 💕</div>
+        <div class="celebration-hearts">💖 💗 💓 💝 💖</div>
+    </div>
+
+    <!-- Heart Burst Container -->
+    <div class="heart-burst" id="heartBurst"></div>
+
+    <!-- Music Toggle -->
+    <button class="music-toggle muted" id="musicToggle" title="Toggle Music">🎵</button>
+
+    <!-- Background Music (soft romantic instrumental - using a silent placeholder) -->
+    <audio id="bgMusic" loop>
+        <!-- Add your own romantic music file here -->
+        <!-- Example: <source src="romantic-music.mp3" type="audio/mpeg"> -->
+    </audio>
+
+    <script>
+        // ============================================
+        // LETTER DATA
+        // ============================================
+        const letterData = {
+            'N': {
+                displayKey: 'N',
+                title: 'Natasha',
+                content: [
+                    "I was never someone who believed in love the way movies show it.",
+                    "But funnily enough… Natasha was always my favourite name.",
+                    "Even before I met you.",
+                    "So when I first heard your name, something in me was already curious.",
+                    "And then I saw you. Talked to you.",
+                    "And without realizing it, I knew you weren't just someone I met… you were someone I was meant to meet."
+                ]
+            },
+            'A1': {
+                displayKey: 'A',
+                title: 'Always June 11',
+                content: [
+                    "June 11, 2023 wasn't just a date.",
+                    "It was the beginning of something that changed me.",
+                    "We lost our way once, not because love wasn't there, but because we didn't yet know how to hold it right.",
+                    "And instead of giving up, I chose to grow.",
+                    "So when we found our way back and chose each other again on June 11, 2025,",
+                    "it meant more because this time, it was intentional. It was stronger. It was us."
+                ]
+            },
+            'T': {
+                displayKey: 'T',
+                title: 'The Kiss I\'ll Never Forget',
+                content: [
+                    "June 25, 2023.",
+                    "I was nervous, scared, overthinking everything… because I knew I wasn't just kissing a girl.",
+                    "I was sharing your first kiss.",
+                    "And you asking me \"Why haven't you kissed me the whole day?\" still makes me smile like an idiot.",
+                    "That moment lives in my heart forever not because of the kiss, but because it was you."
+                ]
+            },
+            'A2': {
+                displayKey: 'A',
+                title: 'Across Miles',
+                content: [
+                    "Right now, Sangli and Pune sit between us.",
+                    "MBBS books, long calls, missed hugs, and fights that sometimes hurt more because of the distance.",
+                    "But no matter how much we fight, we always find our way back.",
+                    "Because distance never stood a chance against how deeply I choose you every single day."
+                ]
+            },
+            'S': {
+                displayKey: 'S',
+                title: 'Sunlight',
+                content: [
+                    "There's a moment I wish I could freeze forever ",
+                    "your brown eyes when sunlight hits them just right.",
+                    "That view is my favourite place in the world.",
+                    "And your long, luscious black hair?",
+                    "It feels like home even when I'm far away.",
+                    "You don't just look beautiful you feel like peace."
+                ]
+            },
+            'H': {
+                displayKey: 'H',
+                title: 'Happiness',
+                content: [
+                    "You are my happiness.",
+                    "My motivation.",
+                    "The person my day starts with and ends with.",
+                    "Even on the hardest days, even when we fight, even when things feel messy ",
+                    "you are still the love of my life.",
+                    "You make me want to be better, not for the world, but for us."
+                ]
+            },
+            'A3': {
+                displayKey: 'A',
+                title: 'Always & Forever',
+                content: [
+                    "I imagine a future with you.",
+                    "One where we have a daughter named Evara,",
+                    "where you both gang up on me, fight over me, dress her up, and laugh endlessly.",
+                    "I imagine a lifetime of choosing you, again and again.",
+                    "I promise to love you not perfectly, but honestly, deeply, and always."
+                ]
+            }
+        };
+
+        const proposalLines = [
+            { text: "Natasha…", isHighlight: true },
+            { text: "I've loved you before I understood love." },
+            { text: "I choose you today, tomorrow, and every version of forever." },
+            { text: "Will you be mine always?" }
+        ];
+
+        // ============================================
+        // STATE
+        // ============================================
+        const letterKeys = ['N', 'A1', 'T', 'A2', 'S', 'H', 'A3'];
+        const displayLetters = ['N', 'A', 'T', 'A', 'S', 'H', 'A'];
+        let openedLetters = new Set();
+        let musicPlaying = false;
+
+        // ============================================
+        // DOM ELEMENTS
+        // ============================================
+        const nameContainer = document.getElementById('nameContainer');
+        const progressHearts = document.getElementById('progressHearts');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const letterTitle = document.getElementById('letterTitle');
+        const letterContent = document.getElementById('letterContent');
+        const modalKeyLetter = document.getElementById('modalKeyLetter');
+        const modalBgLetter = document.getElementById('modalBgLetter');
+        const backButton = document.getElementById('backButton');
+        const landingScreen = document.getElementById('landingScreen');
+        const finalScreen = document.getElementById('finalScreen');
+        const proposalText = document.getElementById('proposalText');
+        const yesButton = document.getElementById('yesButton');
+        const celebration = document.getElementById('celebration');
+        const heartBurst = document.getElementById('heartBurst');
+        const heartsContainer = document.getElementById('heartsContainer');
+        const musicToggle = document.getElementById('musicToggle');
+        const bgMusic = document.getElementById('bgMusic');
+
+        // ============================================
+        // INITIALIZATION
+        // ============================================
+        function init() {
+            createLetters();
+            createProgressHearts();
+            createFloatingHearts();
+            setupEventListeners();
+        }
+
+        function createLetters() {
+            displayLetters.forEach((letter, index) => {
+                const span = document.createElement('span');
+                span.className = 'letter';
+                span.textContent = letter;
+                span.dataset.key = letterKeys[index];
+                span.addEventListener('click', () => openLetter(letterKeys[index], span));
+                nameContainer.appendChild(span);
+            });
+        }
+
+        function createProgressHearts() {
+            for (let i = 0; i < 7; i++) {
+                const heart = document.createElement('span');
+                heart.className = 'progress-heart';
+                heart.textContent = '♥';
+                progressHearts.appendChild(heart);
+            }
+        }
+
+        function createFloatingHearts() {
+            const hearts = ['♥', '♡', '❤', '💕'];
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 15 + 's';
+                heart.style.animationDuration = (15 + Math.random() * 10) + 's';
+                heartsContainer.appendChild(heart);
+            }
+        }
+
+        function setupEventListeners() {
+            backButton.addEventListener('click', closeModal);
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) closeModal();
+            });
+            yesButton.addEventListener('click', celebrate);
+            musicToggle.addEventListener('click', toggleMusic);
+        }
+
+        // ============================================
+        // LETTER FUNCTIONS
+        // ============================================
+        function openLetter(key, element) {
+            const data = letterData[key];
+            if (!data) return;
+
+            // Mark as opened
+            openedLetters.add(key);
+            element.classList.add('opened');
+            updateProgress();
+
+            // Set modal content
+            letterTitle.textContent = data.title;
+            modalKeyLetter.textContent = data.displayKey;
+            modalBgLetter.textContent = data.displayKey;
+
+            letterContent.innerHTML = '';
+
+            data.content.forEach((line, index) => {
+                const span = document.createElement('span');
+                span.className = 'typewriter-line';
+                span.textContent = line;
+                letterContent.appendChild(span);
+
+                // Typewriter animation with delay
+                setTimeout(() => {
+                    span.classList.add('visible');
+                }, 300 + (index * 600));
+            });
+
+            // Show modal
+            modalOverlay.classList.add('active');
+        }
+
+        function closeModal() {
+            modalOverlay.classList.remove('active');
+
+            // Check if all letters opened
+            if (openedLetters.size === 7) {
+                setTimeout(showFinalScreen, 800);
+            }
+        }
+
+        function updateProgress() {
+            const hearts = progressHearts.querySelectorAll('.progress-heart');
+            hearts[openedLetters.size - 1].classList.add('filled');
+        }
+
+        // ============================================
+        // FINAL SCREEN
+        // ============================================
+        function showFinalScreen() {
+            landingScreen.classList.add('hidden');
+            finalScreen.classList.add('active');
+
+            // Animate proposal text
+            proposalText.innerHTML = '';
+            proposalLines.forEach((line, index) => {
+                const span = document.createElement('span');
+                span.className = 'proposal-line';
+                if (line.isHighlight) {
+                    span.classList.add('highlight');
+                }
+                span.textContent = line.text;
+                proposalText.appendChild(span);
+
+                setTimeout(() => {
+                    span.classList.add('visible');
+                }, 500 + (index * 1000));
+            });
+
+            // Show yes button after text
+            setTimeout(() => {
+                yesButton.classList.add('visible');
+            }, 500 + (proposalLines.length * 1000) + 500);
+        }
+
+        // ============================================
+        // CELEBRATION
+        // ============================================
+        function celebrate() {
+            // Create heart burst
+            const buttonRect = yesButton.getBoundingClientRect();
+            const centerX = buttonRect.left + buttonRect.width / 2;
+            const centerY = buttonRect.top + buttonRect.height / 2;
+
+            for (let i = 0; i < 30; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'burst-heart';
+                heart.textContent = ['💖', '💕', '💗', '💓', '💝'][Math.floor(Math.random() * 5)];
+                heart.style.left = centerX + 'px';
+                heart.style.top = centerY + 'px';
+
+                const angle = (Math.PI * 2 * i) / 30;
+                const distance = 100 + Math.random() * 200;
+                const tx = Math.cos(angle) * distance;
+                const ty = Math.sin(angle) * distance - 100;
+
+                heart.style.setProperty('--tx', tx + 'px');
+                heart.style.setProperty('--ty', ty + 'px');
+                heart.style.animation = `burstOut 2s ease-out forwards`;
+                heart.style.transform = `translate(${tx}px, ${ty}px)`;
+
+                heartBurst.appendChild(heart);
+            }
+
+            // Show celebration after burst
+            setTimeout(() => {
+                finalScreen.style.opacity = '0';
+                celebration.classList.add('active');
+            }, 800);
+
+            // Cleanup hearts
+            setTimeout(() => {
+                heartBurst.innerHTML = '';
+            }, 2500);
+        }
+
+        // ============================================
+        // MUSIC
+        // ============================================
+        function toggleMusic() {
+            if (musicPlaying) {
+                bgMusic.pause();
+                musicToggle.classList.add('muted');
+            } else {
+                bgMusic.play().catch(() => {
+                    // Autoplay blocked - that's okay
+                });
+                musicToggle.classList.remove('muted');
+            }
+            musicPlaying = !musicPlaying;
+        }
+
+        // ============================================
+        // KEYBOARD ACCESSIBILITY
+        // ============================================
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        // ============================================
+        // START
+        // ============================================
+        init();
+    </script>
+</body>
+
+</html>
